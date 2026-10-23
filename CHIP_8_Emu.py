@@ -304,8 +304,12 @@ class CHIP_8() :
             print(f"{filename} File not found.")
 
 def select_rom() :
-    #f_dir = str(input("Paste your .ch8 rom directory here : ")).strip("'")
-    files = [f for f in os.listdir('CH8Binaries') if f.endswith('.ch8')]
+    f_dir = str(input("Paste your .ch8 rom directory here : ")).strip("'")
+    if not f_dir :
+        print("No directory specified. Returning to default directory.")
+        files = [f for f in os.listdir('CH8Binaries') if f.endswith('.ch8')]
+    else :
+        files = [f for f in os.listdir(f_dir) if f.endswith('.ch8')]
 
     if not files :
         print("No .ch8 files found in the directory!")
@@ -319,7 +323,10 @@ def select_rom() :
         try :
             choice = int(input("\nSelect a ROM number to load : "))
             if 0 <= choice < len(files) :
-                return  os.path.join('CH8Binaries', files[choice])
+                if not f_dir :
+                    return os.path.join('CH8Binaries', files[choice])
+                else :
+                    return os.path.join(f_dir, files[choice])
             else :
                 print("Invalid selection. Try again.")
         except ValueError :
