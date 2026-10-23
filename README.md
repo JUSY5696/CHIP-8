@@ -8,14 +8,14 @@ CHIP-8 Emulator is python based program that emulates CHIP-8 binaries. It may in
 
 ## Usage
 ### Running the Emulator
-1. Clone the github repo \n
+1. Clone the github repo<br>
 `git clone https://github.com/JUSY5696/CHIP-8.git`
-2. Change the directory to the repo \n
+2. Change the directory to the repo<br>
 `cd CHIP-8`
-3. Run the program \n
+3. Run the program<br>
 `python3 CHIP_8_Emu.py`
 ### Creating the ROM
 1. Inside the repo, open ch8Creator.py
 2. Fill in the binarray.
-3. Save, and run ch8Creator.py \n
+3. Save, and run ch8Creator.py<br>
 `python3 ch8Creator.py`
