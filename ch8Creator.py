@@ -1,4 +1,6 @@
 rom = bytearray([
+    #ENTER CHIP8 INSTRUCTIONS
+    #EXAMPLE
     0x00, 0xE0, #cls
     0x65, 0x00, #v5 = 00, #addr 0x202
     0xF0, 0x0A, #wait for input #addr 0x204
@@ -13,7 +15,14 @@ rom = bytearray([
     0xD3, 0x45, #draw x=v3, y=v4, 5 row
     0x85, 0x00,
     0x12, 0x04  #jmp 0x204
-
 ])
-with open("pulse_test.ch8", "wb") as f :
+
+def formatName() :
+    name = str(input("File Name :")).strip().lower().replace(" ", "_")
+    if name.endswith(".ch8") :
+        return name
+    else :
+        return f"{name}.ch8"
+
+with open(formatName(), "wb") as f :
     f.write(rom)
